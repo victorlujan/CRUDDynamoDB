@@ -30,7 +30,7 @@ func PutItem(svc *dynamodb.DynamoDB, data []models.User, tableName string)  {
 			fmt.Println("Got error calling PutItem:")
 			log.Fatal(err.Error())
 		}else{
-			fmt.Println("PutItem success")
+			fmt.Println("PutItem", out)
 		}
 	}
 }

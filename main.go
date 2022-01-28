@@ -23,7 +23,7 @@ func main() {
 	} else {
 		log.Fatal(err, " Error creating table")
 	}
-	CRUD.PutItem(svc, getItems(), "Users")
+	CRUD.PutItem(svc, getItems(), tableName)
 
 }
 
