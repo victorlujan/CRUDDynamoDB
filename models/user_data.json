@@ -1,0 +1,18 @@
+[
+    {
+        "Id": "1",
+        "Email": "example@live.com",
+        "Password": "examplepassword",
+        "First_name": "Lu",
+        "Last_name": "bbbbbbb",
+        "Phone": "123456789"
+    },
+    {
+        "Id": "2",
+        "Email": "example@gmail.com",
+        "Password": "examplepassword",
+        "First_name": "Ana",
+        "Last_name": "bbbbbbb",
+        "Phone": "123456789"
+    }
+]
