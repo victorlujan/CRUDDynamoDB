@@ -1,22 +1,9 @@
-package main
-
-import (
-	"CRUDDynamoDB/conexion"
-
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
-
-	"fmt"
-	"log"
+package models
+import(
+"github.com/aws/aws-sdk-go/service/dynamodb"
+"github.com/aws/aws-sdk-go/aws"
 )
-
-func main() {
-	// Initialize a session that the SDK will use to load
-	// credentials from the shared credentials file ~/.aws/credentials
-	// and region from the shared configuration file ~/.aws/config.
-	svc, _ := conexion.ConectDB()
-
-	// Create table Movies
+func TableModel()  (*dynamodb.CreateTableInput,string) {
 
 	tableName := "Usuarios"
 
@@ -49,11 +36,8 @@ func main() {
 		TableName: aws.String(tableName),
 	}
 
-	_, err := svc.CreateTable(input)
-	if err != nil {
-		log.Fatalf("Got error calling CreateTable: %s", err)
-	}
 
-	fmt.Println("Created the table", tableName)
+	return input, tableName
+
 
 }
