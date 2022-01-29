@@ -3,17 +3,19 @@ package main
 import (
 	"CRUDDynamoDB/CRUD"
 	"CRUDDynamoDB/conexion"
-	"CRUDDynamoDB/models"
 
+	//"CRUDDynamoDB/models"
+
+	"CRUDDynamoDB/models"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
+	"fmt"
 )
 
 func main() {
 	svc, _ := conexion.ConectDB()
-	input, tableName := models.TableModel()
+	/*input, tableName := models.TableModel()
 
 	out, err := CRUD.CreateTable(svc, input)
 
@@ -23,7 +25,17 @@ func main() {
 	} else {
 		log.Fatal(err, " Error creating table")
 	}
-	CRUD.PutItem(svc, getItems(), tableName)
+	CRUD.PutItem(svc, getItems(), tableName) */
+
+	input := models.GetItemModel()
+	//CRUD.GetItem(svc, input, tableName)
+
+	out, err :=CRUD.GetItem(svc, input)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(out.Email)
+
 
 }
 

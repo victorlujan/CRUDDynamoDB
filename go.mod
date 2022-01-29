@@ -3,7 +3,7 @@ module CRUDDynamoDB
 go 1.17
 
 require (
-	github.com/aws/aws-sdk-go v1.42.43 // indirect
+	github.com/aws/aws-sdk-go v1.42.44 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.13.0 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.13.0 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.8.0 // indirect

@@ -1,14 +1,12 @@
 package CRUD
-import(
-	"github.com/aws/aws-sdk-go/service/dynamodb"
 
+import (
+	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func CreateTable(svc *dynamodb.DynamoDB, input *dynamodb.CreateTableInput) (*dynamodb.CreateTableOutput, error)   {
+func CreateTable(svc *dynamodb.DynamoDB, input *dynamodb.CreateTableInput) (*dynamodb.CreateTableOutput, error) {
 
-
-
-	out,err := svc.CreateTable(input)
+	out, err := svc.CreateTable(input)
 
 	if err != nil {
 		return nil, err
@@ -18,5 +16,5 @@ func CreateTable(svc *dynamodb.DynamoDB, input *dynamodb.CreateTableInput) (*dyn
 		TableName: out.TableDescription.TableName,
 	})
 
-	return out,nil
+	return out, nil
 }
