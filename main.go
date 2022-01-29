@@ -27,16 +27,19 @@ func main() {
 	}
 	CRUD.PutItem(svc, getItems(), tableName) */
 
-	input := models.GetItemModel()
+	//input := models.GetItemModel()
 	//CRUD.GetItem(svc, input, tableName)
+	
 
-	out, err :=CRUD.GetItem(svc, input)
+	//out, err :=CRUD.GetItem(svc, input)
+
+	input := models.GetScanItemModel()
+
+	out, err := CRUD.ScanItem(svc, input)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(out.Email)
-
-
+	fmt.Println(out)
 }
 
 func getItems() []models.User {
