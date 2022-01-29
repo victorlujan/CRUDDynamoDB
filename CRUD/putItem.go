@@ -21,9 +21,9 @@ func PutItem(svc *dynamodb.DynamoDB, data []models.User, tableName string)  {
 
 		input := &dynamodb.PutItemInput{
 			Item:      av,
-			TableName: aws.String(tableName),
+			TableName: aws.String("Users"),
 		}
-
+		fmt.Println(input)
 		out, err := svc.PutItem(input)
 
 		if err != nil {
