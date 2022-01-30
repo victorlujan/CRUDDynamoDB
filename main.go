@@ -5,28 +5,29 @@ import (
 	"CRUDDynamoDB/conexion"
 	"CRUDDynamoDB/models"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
-	"fmt"
 )
 
 func main() {
+
 	svc, _ := conexion.ConectDB()
-	input, tableName := models.TableModel()
+	//input, tableName := models.TableModel()
 
-	_, err := CRUD.CreateTable(svc, input)
+	//_, err := CRUD.CreateTable(svc, input)
 
-	if err == nil {
-		fmt.Println("Created the table", tableName)
+	//if err == nil {
+	//	fmt.Println("Created the table", tableName)
 
-	} else {
-		log.Fatal(err, " Error creating table")
-	}
-	
-	CRUD.PutItem(svc, getItems(), tableName)
+	//} else {
+	//	log.Fatal(err, " Error creating table")
+	//}
+
+	//CRUD.PutItem(svc, getItems(), tableName)
 
 	//input := models.GetItemModel()
-	//CRUD.GetItem(svc, input, tableName)
+	//CRUD.GetItem(svc, input, tableName)0
 
 	//out, err :=CRUD.GetItem(svc, input)
 
@@ -36,7 +37,16 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(out)
+	fmt.Println(out[0])
+
+	deleteinput:= models.GetDeleteInput()
+
+	deleteout, err := CRUD.DeleteItem(svc, deleteinput)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(deleteout)
+
 }
 
 func getItems() []models.User {
